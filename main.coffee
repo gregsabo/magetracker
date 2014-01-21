@@ -77,17 +77,17 @@ $( ->
     if action_bumps >= 1
       message = """
         You may now choose #{action_bumps} new Advanced Action
-        #{plur(action_bumps, "card")} and #{action_bumps} new Character
-        #{plur(action_bumps, "Skill")}.<br/><br/>
-        You should now have a total of #{total_skills} Character #{plur(total_skills, "Skill")}.
+        #{plur(action_bumps, "card")} and #{action_bumps} new Skill
+        #{plur(action_bumps, "token")}.<br/><br/>
+        You should now have a total of #{total_skills} Skill #{plur(total_skills, "token")}.
       """
     if level_bumps >= 1
-      message = """You may now take #{level_bumps} #{plur(level_bumps, "shield")} from your
-      stack and flip it over.<br /><br />
+      message = """You may now take #{level_bumps} Level #{plur(level_bumps, "token")} from your
+      stack and flip it over, making it into a Command token.<br /><br />
       You should now have a total of #{total_shields}
-      available #{plur(total_shields, "shield")}."""
+      available Command #{plur(total_shields, "token")}."""
     if (action_bumps >= 1) and (level_bumps >= 1)
-      message = "You may now take #{level_bumps} shield from your stack, #{action_bumps} Advanced Action card and #{action_bumps} Character Skill."
+      message = "You may now take #{level_bumps} Level token from your stack, #{action_bumps} Advanced Action card and #{action_bumps} Skill token."
 
 
     nextLevel = Math.min.apply(null, 

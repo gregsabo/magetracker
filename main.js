@@ -75,13 +75,13 @@
       }
       message = void 0;
       if (action_bumps >= 1) {
-        message = "You may now choose " + action_bumps + " new Advanced Action\n" + (plur(action_bumps, "card")) + " and " + action_bumps + " new Character\n" + (plur(action_bumps, "Skill")) + ".<br/><br/>\nYou should now have a total of " + total_skills + " Character " + (plur(total_skills, "Skill")) + ".";
+        message = "You may now choose " + action_bumps + " new Advanced Action\n" + (plur(action_bumps, "card")) + " and " + action_bumps + " new Skill\n" + (plur(action_bumps, "token")) + ".<br/><br/>\nYou should now have a total of " + total_skills + " Skill " + (plur(total_skills, "token")) + ".";
       }
       if (level_bumps >= 1) {
-        message = "You may now take " + level_bumps + " " + (plur(level_bumps, "shield")) + " from your\nstack and flip it over.<br /><br />\nYou should now have a total of " + total_shields + "\navailable " + (plur(total_shields, "shield")) + ".";
+        message = "You may now take " + level_bumps + " Level " + (plur(level_bumps, "token")) + " from your\nstack and flip it over, making it into a Command token.<br /><br />\nYou should now have a total of " + total_shields + "\navailable Command " + (plur(total_shields, "token")) + ".";
       }
       if ((action_bumps >= 1) && (level_bumps >= 1)) {
-        message = "You may now take " + level_bumps + " shield from your stack, " + action_bumps + " Advanced Action card and " + action_bumps + " Character Skill.";
+        message = "You may now take " + level_bumps + " Level token from your stack, " + action_bumps + " Advanced Action card and " + action_bumps + " Skill token.";
       }
       nextLevel = Math.min.apply(null, _(_(ACTION_THRESHOLDS).union(SHIELD_THRESHOLDS)).filter(function(item) {
         return item > newFame;
