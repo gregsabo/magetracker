@@ -15,6 +15,10 @@
   };
 
   $(function() {
+    return FastClick.attach(document.body);
+  });
+
+  $(function() {
     var fame, rep;
     rep = parseInt(localStorage.mage_knight_current_reputation || 0);
     $(".currentReputation").text(rep);
@@ -31,13 +35,13 @@
       $(".currentReputation").text(0);
       return $(".currentFame").text(0);
     });
-    $(".incrCurrentReputation").mousedown(function() {
+    $(".incrCurrentReputation").click(function() {
       var newRep;
       newRep = parseInt($(".currentReputation").text(), 10) + 1;
       localStorage.mage_knight_current_reputation = newRep;
       return $(".currentReputation").text(newRep);
     });
-    $(".decrCurrentReputation").mousedown(function() {
+    $(".decrCurrentReputation").click(function() {
       var newRep;
       newRep = parseInt($(".currentReputation").text(), 10) - 1;
       localStorage.mage_knight_current_reputation = newRep;
@@ -47,10 +51,10 @@
       $(".view").hide();
       return $(".editView").show();
     });
-    $(".incrNewFame").mousedown(function() {
+    $(".incrNewFame").click(function() {
       return $(".newFame").text(parseInt($(".newFame").text(), 10) + 1);
     });
-    $(".decrNewFame").mousedown(function() {
+    $(".decrNewFame").click(function() {
       return $(".newFame").text(parseInt($(".newFame").text(), 10) - 1);
     });
     $(".doneNewFame").click(function() {

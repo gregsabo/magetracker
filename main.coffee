@@ -7,6 +7,10 @@ plur = (num, word) ->
   else
     return "#{word}s"
 
+$( ->
+    FastClick.attach(document.body)
+)
+
 
 $( ->
   rep = parseInt(localStorage.mage_knight_current_reputation or 0)
@@ -24,7 +28,7 @@ $( ->
     $(".currentFame").text(0)
   )                 
   
-  $(".incrCurrentReputation").mousedown( ->
+  $(".incrCurrentReputation").click( ->
     newRep = parseInt($(".currentReputation").text(), 10) + 1  
     localStorage.mage_knight_current_reputation = newRep
     $(".currentReputation").text(
@@ -32,7 +36,7 @@ $( ->
     )
   )
 
-  $(".decrCurrentReputation").mousedown( ->
+  $(".decrCurrentReputation").click( ->
     newRep = parseInt($(".currentReputation").text(), 10) - 1  
     localStorage.mage_knight_current_reputation = newRep
     $(".currentReputation").text(
@@ -45,13 +49,13 @@ $( ->
     $(".editView").show()
   )
     
-  $(".incrNewFame").mousedown( ->
+  $(".incrNewFame").click( ->
     $(".newFame").text(
       parseInt($(".newFame").text(), 10) + 1
     )
   )
     
-  $(".decrNewFame").mousedown( ->
+  $(".decrNewFame").click( ->
     $(".newFame").text(
       parseInt($(".newFame").text(), 10) - 1
     )
