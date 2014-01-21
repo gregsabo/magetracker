@@ -1,6 +1,13 @@
 ACTION_THRESHOLDS = [3, 15, 35, 63, 99]
 SHIELD_THRESHOLDS = [8, 24, 48, 80]
 
+plur = (num, word) ->
+  if num is 1
+    return word
+  else
+    return "#{word}s"
+
+
 $( ->
   rep = parseInt(localStorage.mage_knight_current_reputation or 0)
   $(".currentReputation").text(rep)
@@ -66,13 +73,32 @@ $( ->
         if _(SHIELD_THRESHOLDS).contains(step)
             level_bumps += 1
             total_shields = SHIELD_THRESHOLDS.indexOf(step) + 2
-    message = "Done. Your Fame level is now #{newFame}"
+    message = undefined
     if action_bumps >= 1
-        message = "Awesome! Now that your Fame level is #{newFame}, you may now choose #{action_bumps} new Advanced Action card and #{action_bumps} new Character Skill.<br/><br/>You should now have a total of #{total_skills} Character Skills."
+      message = """
+        You may now choose #{action_bumps} new Advanced Action
+        #{plur(action_bumps, "card")} and #{action_bumps} new Character
+        #{plur(action_bumps, "Skill")}.<br/><br/>
+        You should now have a total of #{total_skills} Character #{plur(total_skills, "Skill")}.
+      """
     if level_bumps >= 1
-        message = "Great news! Now that your Fame has increased to #{newFame}, you may now take #{level_bumps} shield from your stack and flip it over.<br /><br />You should now have a total of #{total_shields} available shields."
+      message = """You may now take #{level_bumps} #{plur(level_bumps, "shield")} from your
+      stack and flip it over.<br /><br />
+      You should now have a total of #{total_shields}
+      available #{plur(total_shields, "shield")}."""
+    if (action_bumps >= 1) and (level_bumps >= 1)
+      message = "You may now take #{level_bumps} shield from your stack, #{action_bumps} Advanced Action card and #{action_bumps} Character Skill."
+
+
+    nextLevel = Math.min.apply(null, 
+      _(_(ACTION_THRESHOLDS).union(SHIELD_THRESHOLDS)).filter((item) -> item > newFame )
+    )
+    if not message?
+      message = "You will get another benefit at Fame #{nextLevel}."
+
     $(".newFame").text(0)
     $(".currentFame").text(newFame)
+    $(".fame.odometer").text(newFame)
     $(".view").hide()
     $(".effectView").show()
     $(".effect").html(message)

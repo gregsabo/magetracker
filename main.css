@@ -51,7 +51,7 @@ h3 {
     background-color: #E04428;
 }
 
-.doneNewFame, .ok {
+.addFameButton, .doneNewFame, .ok {
     background-color: #00BBB8;
 }
 
@@ -64,5 +64,9 @@ h3 {
 }
 
 .ok {
+    margin-top: 30px;
+}
+
+.effect {
     margin-top: 30px;
 }

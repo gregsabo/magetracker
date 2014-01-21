@@ -2,60 +2,64 @@
     <head>
         <title>Mage Knight Board Game Tracker</title>
         <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" href="odometer-theme-default.css" />
         <meta name="viewport" content="width=480">
     </head>
     <body>
         <h3>Mage Knight<br/>Board Game Tracker</h3>
         <div class='view mainDisplay'>
-        <div class='currentFame'>
-            0
-        </div>
-        <div class='label1'>
-            Fame
-        </div>
-        <div class='button addFameButton'>Add fame</div>
+            <div class='currentFame'>
+                0
+            </div>
+            <div class='label1'>
+                Fame
+            </div>
+            <div class='button addFameButton'>Add fame</div>
 
-        <div class='currentReputation'>
-            0
-        </div>
-        <div class='label1'>
-            Reputation
-        </div>
+            <div class='currentReputation'>
+                0
+            </div>
+            <div class='label1'>
+                Reputation
+            </div>
 
-        <div class='incr-wrap'>
-        <div class='button decr decrCurrentReputation'>-1</div>
-        <div class='button incr incrCurrentReputation'>+1</div>
-        </div>
-            <div class='reset button'>
-            New Game
-        </div>
+            <div class='incr-wrap'>
+            <div class='button decr decrCurrentReputation'>-1</div>
+            <div class='button incr incrCurrentReputation'>+1</div>
+            </div>
+                <div class='reset button'>
+                New Game
+            </div>
 
         </div>
 
         <div class='view editView' style="display: none;">
-        <div class='label1'>
-            How much Fame have you gained?
-        </div>
-        <div class='newFame'>
-            0
-        </div>
-        <div class='label1'>
-            Fame
-        </div>
-        <div class='incr-wrap'>
-        <div class='button decr decrNewFame'>-1</div>
-        <div class='button incr incrNewFame'>+1</div>
-        </div>
-            <br />
-        <div class='button doneNewFame'>Done</div>
+            <div class='label1'>
+                How much Fame have you gained?
+            </div>
+            <div class='newFame'>
+                0
+            </div>
+            <div class='label1'>
+                Fame
+            </div>
+            <div class='incr-wrap'>
+            <div class='button decr decrNewFame'>-1</div>
+            <div class='button incr incrNewFame'>+1</div>
+            </div>
+                <br />
+            <div class='button doneNewFame'>Done</div>
         </div>
 
         <div class='view effectView' style="display: none">
+            <div class='fameAnnounce'>Your Fame is now:</div>
+            <div class='fame odometer'>0</div>
             <div class='effect'></div>
             <div class='button ok'>OK</div>
         </div>
         <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
         <script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
+        <script src="odometer.min.js"></script>
         <script src='main.js'/></script>
     </body>
 </html>
